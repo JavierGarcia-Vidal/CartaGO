@@ -18,23 +18,12 @@
         
 <!--############## PROGRESS ###################################################################################################-->
         <div class="progress">
-            <div class="determinate cyan darken-4" style="width: 100%"></div>
+            <div id="progress-bar" class="determinate cyan darken-4" style="width: 0%"></div>
         </div>
 <!--############## HEADER & MENU ##############################################################################################-->
         <nav>
             <div class="nav-wrapper cyan darken-2 z-depth-2 bring_to_front relative">
                 <a href="#" class="brand-logo center">Logo</a>
-                <ul>
-                    <li>
-                        <form>
-                            <div class="input-field">
-                                <input id="search" type="search" required>
-                                <label for="search"><i class="mdi-action-search"></i></label>
-                                <i class="mdi-navigation-close"></i>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
                 <ul id="dropdown1" class="dropdown-content">
                     <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
                     <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
@@ -51,7 +40,6 @@
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-apps"></i><i                                      class="mdi-navigation-arrow-drop-down right"></i></a></li>       
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li class="divider"></li>
                     <li><a href="#"><i class="mdi-action-home"></i></a></li>
                     <li><a href="#"><i class="mdi-image-adjust"></i></a></li>
                     <li><a href="#"><i class="mdi-device-gps-fixed"></i></a></li>
@@ -66,6 +54,17 @@
                     <li><a href="#">Javascript</a></li>
                     <li><a href="#">Mobile</a></li>
                 </ul>
+                <ul>
+                    <li>
+                        <form>
+                            <div class="input-field right">
+                                <input id="search" type="search" required>
+                                <label for="search"><i class="mdi-action-search"></i></label>
+                                <i class="mdi-navigation-close"></i>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
@@ -73,29 +72,17 @@
         
         <div id="map">
            
-<!--############## SIDEBAR ####################################################################################################-->
+<!--############## SIDEBAR SIGN UP #############################################################################################-->
                
             <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
                 <div class="row valign-wrapper sidebar-container">
                     <form class="col s12">
-                        <h5 class="cyan-text text-lighten-4">Registra un nuevo evento</h5>
-                        <div class="row">
-                            <div class="aside-form input-field col s6">
-                                <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">First Name</label>
-                            </div>
-                            <div class="aside-form input-field col s6">
-                                <i class="mdi-action-assignment-ind prefix fix-prefix-position"></i>
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Last Name</label>
-                            </div>
-                        </div>
+                        <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
                         <div class="row">
                             <div class="aside-form input-field col s12">
-                                <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
+                                <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">Username</label>
                             </div>
                         </div>
                         <div class="row">
@@ -106,8 +93,15 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="aside-form input-field col s12">
+                                <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="aside-form center input-field col s12">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign Up
                                     <i class="mdi-content-send right"></i>
                                 </button>
                             </div>
@@ -116,7 +110,41 @@
                 </div>
             </aside>
             
-<!--##########################################################################################################################-->     
+<!--##########################################################################################################################-->
+           
+<!--############## SIDEBAR SIGN IN #############################################################################################-->
+
+<!-- <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
+                <div class="row valign-wrapper sidebar-container">
+                    <form class="col s12">
+                        <h5 class="cyan-text text-lighten-4 center">Sign in</h5>
+                        <div class="row">
+                            <div class="aside-form input-field col s12">
+                                <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="aside-form input-field col s12">
+                                <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="aside-form center input-field col s12">
+                                <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Login In
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </aside>
+-->
+
+<!--##########################################################################################################################-->        
             
         </div>
         
@@ -124,9 +152,9 @@
         <footer class="page-footer cyan darken-2 z-depth-2 fix-box-shadow-footer bring_to_front">
             <div class="row">
                 <div class="col l3 s12">
-                    <div class="card">
+                    <div class="card small">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator limit-height" src="http://theconceptartblog.com/wp-content/uploads/2010/05/lugares-011.jpg">
+                            <img class="activator" src="http://theconceptartblog.com/wp-content/uploads/2010/05/lugares-011.jpg">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Evento Ciudad de Lhasa 
@@ -140,9 +168,9 @@
                     </div>
                 </div>
                 <div class="col l3 s12">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator limit-height" src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light limit-height">
+                            <img class="activator" src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Evento Rio de Janeiro 
@@ -156,9 +184,9 @@
                     </div>
                 </div>
                 <div class="col l3 s12">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator limit-height" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light limit-height">
+                            <img class="activator" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Evento Azteca
@@ -172,9 +200,9 @@
                     </div>
                 </div>
                 <div class="col l3 s12">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator limit-height" src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light limit-height">
+                            <img class="activator" src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Evento New York
@@ -189,9 +217,8 @@
                 </div>
             </div>
             <div class="footer-copyright cyan darken-3">
-                <div class="container">
-                    © 2015 Copyright Javier Garcia-Vidal Simon
-                    <a class="grey-text text-lighten-4 right" href="#">Github</a>
+                <div class="container center">
+                   Proyecto Ironhack © 2015 Copyright Javier Garcia-Vidal Simon
                 </div>
             </div>
         </footer>

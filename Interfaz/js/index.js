@@ -1,5 +1,6 @@
+
 function getLocation() {
-        console.log('Getting location...');
+        $("#progress-bar").css("width", "50%");
         navigator.geolocation.getCurrentPosition(onLocation, onError, options);
 }
 
@@ -12,11 +13,9 @@ function onError(error) {
 }
 
 function onLocation (position) {
-        console.log("Got it!");
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
-        console.log("The position is :" + lat + "AND" + lon);
-//        document.getElementById('location').innerHTML = "Your posititon is " + lat + " latitude and " + lon + " longitude.";
+        $("#progress-bar").css("width", "75%");
         main(lat, lon);
 }
 
@@ -27,8 +26,8 @@ function main(lat, lon) {
         description: true,
         search: true,
         tiles_loader: true,
-        center_lat: 0,
-        center_lon: 0,
+        center_lat: lat,
+        center_lon: lon,
         zoom: 3
     })
         .done(function(vis, layers) {
@@ -40,10 +39,11 @@ function main(lat, lon) {
         });
         // you can get the native map to work with it
         var map = vis.getNativeMap();
+        $("#progress-bar").css("width", "100%");
         // now, perform any operations you need
         // map.setZoom(3);
         // map.panTo([50.5, 30.5]);
-        map.panTo([lat, lon]);
+        //map.panTo([lat, lon]);
     })
         .error(function(err) {
         console.log(err);
@@ -51,3 +51,5 @@ function main(lat, lon) {
 }
 window.onload = getLocation;
 //window.onload = main;
+
+
