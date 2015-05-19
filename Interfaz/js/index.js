@@ -22,13 +22,16 @@ function onLocation (position) {
 function main(lat, lon) {
     cartodb.createVis('map', 'https://javiergvs.cartodb.com/api/v2/viz/7d345c36-f33c-11e4-b98e-0e8dde98a187/viz.json', {
         shareable: false,
+        loaderControl: false,
+        //https: true,
         title: false,
         description: true,
-        search: true,
+        search: false,
+        scrollwheel: true,
         tiles_loader: true,
         center_lat: lat,
         center_lon: lon,
-        zoom: 3
+        zoom: true
     })
         .done(function(vis, layers) {
         // layer 0 is the base layer, layer 1 is cartodb layer

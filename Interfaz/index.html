@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <!--Import CSS for the Cartodb map-->
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
         <!--Import materialize.css-->
@@ -17,66 +18,66 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         
 <!--############## PROGRESS ###################################################################################################-->
-        <div class="progress">
-            <div id="progress-bar" class="determinate cyan darken-4" style="width: 0%"></div>
-        </div>
-<!--############## HEADER & MENU ##############################################################################################-->
-        <nav>
-            <div class="nav-wrapper cyan darken-2 z-depth-2 bring_to_front relative">
-                <a href="#" class="brand-logo center">Logo</a>
-                <ul id="dropdown1" class="dropdown-content">
-                    <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
-                </ul>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-apps"></i><i                                      class="mdi-navigation-arrow-drop-down right"></i></a></li>       
-                </ul>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#"><i class="mdi-action-home"></i></a></li>
-                    <li><a href="#"><i class="mdi-image-adjust"></i></a></li>
-                    <li><a href="#"><i class="mdi-device-gps-fixed"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-explore"></i></a></li>
-                    <li><a href="#"><i class="mdi-action-grade"></i></a></li>
-                    <li><a href="#"><i class="mdi-maps-place"></i></a></li>
-                    <li class="active"><a id="sidebar-button" href="#"><i class="mdi-navigation-apps"></i></a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="#">Sass</a></li>
-                    <li><a href="#">Components</a></li>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">Mobile</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <form>
-                            <div class="input-field right">
-                                <input id="search" type="search" required>
-                                <label for="search"><i class="mdi-action-search"></i></label>
-                                <i class="mdi-navigation-close"></i>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <header>
+            <div class="progress">
+                <div id="progress-bar" class="determinate cyan darken-4" style="width: 0%"></div>
             </div>
-        </nav>
+<!--############## HEADER & MENU ##############################################################################################-->
+            <nav>
+                <div class="nav-wrapper cyan darken-2 z-depth-2 bring_to_front relative">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-apps"></i><i                                      class="mdi-navigation-arrow-drop-down right"></i></a></li>       
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <form>
+                                <div class="input-field right">
+                                    <input id="search" type="search" required>
+                                    <label for="search"><i class="mdi-action-search"></i></label>
+                                    <i class="mdi-navigation-close"></i>
+                                </div>
+                            </form>
+                        </li>
+                        <li><a href="#"><i class="mdi-image-adjust"></i></a></li>
+                        <li><a href="#"><i class="mdi-device-gps-fixed"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-explore"></i></a></li>
+                        <li><a href="#"><i class="mdi-action-grade"></i></a></li>
+                        <li><a href="#"><i class="mdi-maps-place"></i></a></li>
+                        <li class="active"><a id="sidebar-button" href="#"><i class="mdi-navigation-apps"></i></a></li>
+                    </ul>
+                    <ul class="side-nav bring_to_front-mobile" id="mobile-demo">
+                        <li><a href="#">Sass</a></li>
+                        <li><a href="#">Components</a></li>
+                        <li><a href="#">Javascript</a></li>
+                        <li><a href="#">Mobile</a></li>
+                    </ul>
+
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                </div>
+            </nav>
+        </header>
 <!--################ MAP ######################################################################################################-->      
-        
-        <div id="map">
+        <main>
+            <div id="map">
            
 <!--############## SIDEBAR SIGN UP #############################################################################################-->
                
             <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
-                <div class="row valign-wrapper sidebar-container">
-                    <form class="col s12">
+                <div class="row sidebar-container">
+                    <form class="col l6 s12 center-sidebar-content">
                         <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
                         <div class="row">
                             <div class="aside-form input-field col s12">
@@ -110,116 +111,15 @@
                 </div>
             </aside>
             
-<!--##########################################################################################################################-->
-           
-<!--############## SIDEBAR SIGN IN #############################################################################################-->
-
-<!-- <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
-                <div class="row valign-wrapper sidebar-container">
-                    <form class="col s12">
-                        <h5 class="cyan-text text-lighten-4 center">Sign in</h5>
-                        <div class="row">
-                            <div class="aside-form input-field col s12">
-                                <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="aside-form input-field col s12">
-                                <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="aside-form center input-field col s12">
-                                <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Login In
-                                    <i class="mdi-content-send right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </aside>
--->
-
-<!--##########################################################################################################################-->        
+<!--##########################################################################################################################-->       
             
-        </div>
+            </div>
+        </main>
         
 <!--############## FOOTER ####################################################################################################-->     
-        <footer class="page-footer cyan darken-2 z-depth-2 fix-box-shadow-footer bring_to_front">
-            <div class="row">
-                <div class="col l3 s12">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="http://theconceptartblog.com/wp-content/uploads/2010/05/lugares-011.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Evento Ciudad de Lhasa 
-                                <i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="#">Leer mas</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Evento Ciudad de Lhasa<i class="mdi-navigation-close right"></i>                             </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l3 s12">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light limit-height">
-                            <img class="activator" src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Evento Rio de Janeiro 
-                                <i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="#">Leer mas</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Evento Rio de Janeiro<i class="mdi-navigation-close right"></i>                             </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l3 s12">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light limit-height">
-                            <img class="activator" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Evento Azteca
-                                <i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="#">Leer mas</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Evento Azteca <i class="mdi-navigation-close right"></i>                             </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l3 s12">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light limit-height">
-                            <img class="activator" src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Evento New York
-                                <i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="#">Leer mas</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Evento New York<i class="mdi-navigation-close right"></i>                             </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright cyan darken-3">
-                <div class="container center">
-                   Proyecto Ironhack © 2015 Copyright Javier Garcia-Vidal Simon
-                </div>
+        <footer class="footer-copyright cyan darken-3 z-depth-2 fix-box-shadow-footer">
+            <div class="container cyan-text text-lighten-5 center">
+               Proyecto Ironhack © 2015 Copyright Javier Garcia-Vidal Simon
             </div>
         </footer>
         
