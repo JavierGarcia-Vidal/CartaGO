@@ -82,18 +82,71 @@ footer{
 }
 
 .sidebar.visible{
-    box-shadow: -8px 0 17px 0 rgba(0,0,0,0.2),-6px 0 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     display: block;
 }
 
-.sidebar-container{
+.sub-bar{
+    position: fixed;
+    width: 100%;
+    top: 68px;
+    left: 0px;
+    height: 64px;
+    background: rgba(0,96,100,.6);
+    z-index: 99999;
+
+    display: none;
+    transition: all .5s;
+    
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
+}
+
+.sub-bar.visible{
+    display: block;
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow:    0px 10px 20px 0px rgba(0, 0, 0, 0.16);
+    box-shadow:         0px 10px 20px 0px rgba(0, 0, 0, 0.16);
+}
+
+.sub-bar.input-field label {
+    font-size: 2rem;
+}
+
+.center-container{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.center-sidebar-content{
+.center-content{
     max-width: 50%;
+}
+
+.search-bar{
+    width: 100%;
+    z-index: 12;
+}
+
+#map .sub-bar form .input-field label{
+    font-size: 2rem;
+}
+
+#map .sub-bar form .input-field input[type=search]+label{
+    font-size: 2rem;
+    color: white;
+}
+
+#map .sub-bar form .input-field input.active{
+    background: black;
+}
+
+
+#search{
+    width: 100%;
+    background: rgba(255,255,255,.1);
+    
 }
 
 .fix-box-shadow-footer{
@@ -156,11 +209,6 @@ footer{
 
 .text-justify{
     text-align: justify;
-}
-
-#search{
-    margin: 0px;
-    width: auto;
 }
 
 div.cartodb-searchbox{

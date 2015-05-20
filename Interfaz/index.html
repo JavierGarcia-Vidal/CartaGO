@@ -20,49 +20,22 @@
 <!--############## PROGRESS ###################################################################################################-->
         <header>
             <div class="progress">
-                <div id="progress-bar" class="determinate cyan darken-4" style="width: 0%"></div>
+                <div id="progress-bar" class="determinate cyan darken-3" style="width: 0%"></div>
             </div>
 <!--############## HEADER & MENU ##############################################################################################-->
-            <nav>
-                <div class="nav-wrapper cyan darken-2 z-depth-2 bring_to_front relative">
+            <nav class="cyan darken-4 z-depth-2">
+                <div class="nav-wrapper bring_to_front relative">
                     <a href="#" class="brand-logo">Logo</a>
-                    <ul id="dropdown1" class="dropdown-content">
-                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li> 
-                    </ul>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#"><i class="mdi-social-person-add"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-account-box"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-settings-applications"></i></a></li>
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-apps"></i><i                                      class="mdi-navigation-arrow-drop-down right"></i></a></li>       
-                    </ul>
-                    <ul class="right hide-on-med-and-down">
-                        <li>
-                            <form>
-                                <div class="input-field right">
-                                    <input id="search" type="search" required>
-                                    <label for="search"><i class="mdi-action-search"></i></label>
-                                    <i class="mdi-navigation-close"></i>
-                                </div>
-                            </form>
-                        </li>
-                        <li><a href="#"><i class="mdi-image-adjust"></i></a></li>
-                        <li><a href="#"><i class="mdi-device-gps-fixed"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-explore"></i></a></li>
-                        <li><a href="#"><i class="mdi-action-grade"></i></a></li>
-                        <li><a href="#"><i class="mdi-maps-place"></i></a></li>
-                        <li class="active"><a id="sidebar-button" href="#"><i class="mdi-navigation-apps"></i></a></li>
-                    </ul>
+                        <li class="select-search"><a id="search-button" href="#"><i class="mdi-action-search"></i></a></li>
+                        <li class="select-newuser"><a id="newuser-button" href="#"><i class="mdi-social-person-add"></i></a></li>
+                        <li class="select-login"><a id="login-button" href="#"><i class="mdi-action-account-box"></i></a></li>
+                        <li class="select-box"><a id="box-button" href="#"><i class="mdi-navigation-apps"></i></a></li>
                     <ul class="side-nav bring_to_front-mobile" id="mobile-demo">
-                        <li><a href="#">Sass</a></li>
-                        <li><a href="#">Components</a></li>
-                        <li><a href="#">Javascript</a></li>
-                        <li><a href="#">Mobile</a></li>
+                        <li><a href="#">User</a></li>
+                        <li><a href="#">Sign in</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Sign out</a></li>
                     </ul>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -74,10 +47,20 @@
             <div id="map">
            
 <!--############## SIDEBAR SIGN UP #############################################################################################-->
-               
+                
+                <nav id="search-bar" class="sub-bar">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label for="search"><i class="mdi-action-search"></i></label>
+                            <i class="mdi-navigation-close"></i>
+                        </div>
+                    </form>
+                </nav>    
+                
             <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
-                <div class="row sidebar-container">
-                    <form class="col l6 s12 center-sidebar-content">
+                <div class="row center-container">
+                    <form class="col l6 m12 s12 center-content">
                         <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
                         <div class="row">
                             <div class="aside-form input-field col s12">
@@ -117,7 +100,7 @@
         </main>
         
 <!--############## FOOTER ####################################################################################################-->     
-        <footer class="footer-copyright cyan darken-3 z-depth-2 fix-box-shadow-footer">
+        <footer class="footer-copyright cyan darken-4 z-depth-2 fix-box-shadow-footer">
             <div class="container cyan-text text-lighten-5 center">
                Proyecto Ironhack © 2015 Copyright Javier Garcia-Vidal Simon
             </div>
@@ -141,8 +124,13 @@
         
         <script>
             $(document).ready(function(){
-                $('#sidebar-button').click(function(){
+                $('#newuser-button').click(function(){
                     $('#sidebar').toggleClass('visible');
+                    $('.select-newuser').toggleClass('active');
+                });
+                $('#search-button').click(function(){
+                    $('#search-bar').toggleClass('visible');
+                    $('.select-search').toggleClass('active');
                 });
             });
 

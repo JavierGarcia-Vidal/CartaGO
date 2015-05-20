@@ -54,5 +54,3 @@ function main(lat, lon) {
 }
 window.onload = getLocation;
 //window.onload = main;
-
-
