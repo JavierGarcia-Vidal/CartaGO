@@ -34,10 +34,15 @@ main {
 
 .progress{
     margin: 0px;
+    background: #00838f;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
     z-index: 9999999;
+}
+
+.progress .determinate{
+    background: #00585C;
 }
 
 footer{
@@ -59,12 +64,50 @@ footer{
     margin: 0;
 }
 
+.center-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-content{
+    max-width: 50%;
+}
+
 .card-image.position-center img{
     height: 100%;
 }
 
 .bring_to_front-mobile{
-    z-index: 9000;
+    z-index: -1;
+}
+
+#mobile-demo{
+    background: #00838f;
+}
+
+#mobile-demo li{
+    padding: 0px;
+}
+
+#mobile-demo li:hover, #mobile-demo li.active {
+    background-color: rgba(0,0,0,.3); }
+
+#mobile-demo a{
+    color: white;
+}
+
+.mobile-sidebar{
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.mobile-sidebar-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar{
@@ -82,7 +125,24 @@ footer{
 }
 
 .sidebar.visible{
-    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    display: block;
+}
+
+.explore-aside{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background: rgba(0,96,100,.6);
+    z-index: 11;
+    padding-top: 150px;
+
+    display: none;
+    transition: all .5s;
+}
+
+.explore-aside.visible{
     display: block;
 }
 
@@ -98,35 +158,52 @@ footer{
     display: none;
     transition: all .5s;
     
-    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
-    -moz-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
-    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 .sub-bar.visible{
     display: block;
-    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow:    0px 10px 20px 0px rgba(0, 0, 0, 0.16);
-    box-shadow:         0px 10px 20px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.filter-bar{
+    position: fixed;
+    width: 100%;
+    top: 68px;
+    left: 0px;
+    height: 64px;
+    background: rgba(0,96,100,.6);
+    z-index: 99999;
+
+    display: none;
+    transition: all .5s;
+
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.filter-bar ul a{
+    font-size: 2rem;
+}
+
+.filter-bar ul{
+    max-width: 100%;
+}
+
+.filter-bar.visible{
+    display: flex;
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 .sub-bar.input-field label {
     font-size: 2rem;
-}
-
-.center-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.center-content{
-    max-width: 50%;
-}
-
-.search-bar{
-    width: 100%;
-    z-index: 12;
 }
 
 #map .sub-bar form .input-field label{
@@ -150,7 +227,9 @@ footer{
 }
 
 .fix-box-shadow-footer{
-    box-shadow: 0 -8px 17px 0 rgba(0,0,0,0.2),0 -6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px -10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px -10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 /*####### FLOAT FORM ############################################################################################################*/
 /* label color */
@@ -209,6 +288,7 @@ footer{
 
 .text-justify{
     text-align: justify;
+    padding: 5px;
 }
 
 div.cartodb-searchbox{

@@ -20,24 +20,64 @@
 <!--############## PROGRESS ###################################################################################################-->
         <header>
             <div class="progress">
-                <div id="progress-bar" class="determinate cyan darken-3" style="width: 0%"></div>
+                <div id="progress-bar" class="determinate" style="width: 0%"></div>
             </div>
 <!--############## HEADER & MENU ##############################################################################################-->
             <nav class="cyan darken-4 z-depth-2">
                 <div class="nav-wrapper bring_to_front relative">
                     <a href="#" class="brand-logo">Logo</a>
                     <ul class="right hide-on-med-and-down">
-                        <li class="select-search"><a id="search-button" href="#"><i class="mdi-action-search"></i></a></li>
-                        <li class="select-newuser"><a id="newuser-button" href="#"><i class="mdi-social-person-add"></i></a></li>
-                        <li class="select-login"><a id="login-button" href="#"><i class="mdi-action-account-box"></i></a></li>
-                        <li class="select-box"><a id="box-button" href="#"><i class="mdi-navigation-apps"></i></a></li>
-                    <ul class="side-nav bring_to_front-mobile" id="mobile-demo">
-                        <li><a href="#">User</a></li>
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Sign out</a></li>
+                        <li class="select-search">
+                        <a id="search-button" class="tooltipped" data-position="bottom" data-delay="50" 
+                           data-tooltip="Search Box" href="#">
+                            <i class="mdi-action-search"></i></a>
+                        </li>
+                        <li class="select-newuser"><a id="newuser-button" class="tooltipped" 
+                            data-position="bottom" data-delay="50" data-tooltip="Sign Up" href="#">
+                            <i class="mdi-social-person-add"></i></a>
+                        </li>
+                        <li class="select-login">
+                            <a id="login-button" class="tooltipped" data-position="bottom" data-delay="50"
+                             data-tooltip="Sign In" href="#">
+                            <i class="mdi-action-account-box"></i></a>
+                        </li>
+                        <li class="select-explore">
+                           <a id="explore-button" class="tooltipped" data-position="bottom" data-delay="50"
+                           data-tooltip="Explore Events" href="#">
+                            <i class="mdi-action-explore"></i></a>
+                        </li>
+                        <li class="select-box"><a id="box-button" class="tooltipped" data-position="bottom" data-delay="50"
+                            data-tooltip="Filters Map" href="#">
+                            <i class="mdi-navigation-apps"></i></a>
+                        </li>
                     </ul>
-
+                    <ul class="side-nav bring_to_front-mobile mobile-sidebar-center" id="mobile-demo">
+                        <div class="mobile-sidebar">
+                            <li class="select-search">
+                                <a class="search-button tooltipped" data-position="right" data-delay="50" 
+                                   data-tooltip="Search Box" href="#">
+                                    <i class="mdi-action-search"></i></a>
+                            </li>
+                            <li class="select-newuser"><a class="newuser-button tooltipped" 
+                                data-position="right" data-delay="50" data-tooltip="Sign Up" href="#">
+                                <i class="mdi-social-person-add"></i></a>
+                            </li>
+                            <li class="select-login">
+                                <a class="login-button tooltipped" data-position="right" data-delay="50"
+                                   data-tooltip="Sign In" href="#">
+                                    <i class="mdi-action-account-box"></i></a>
+                            </li>
+                            <li class="select-explore">
+                                <a class="explore-button tooltipped" data-position="right" data-delay="50"
+                                   data-tooltip="Explore Events" href="#">
+                                    <i class="mdi-action-explore"></i></a>
+                            </li>
+                            <li class="select-box"><a class="box-button tooltipped" data-position="right" data-delay="50"
+                                data-tooltip="Filters Map" href="#">
+                                <i class="mdi-navigation-apps"></i></a>
+                            </li>
+                        </div>
+                    </ul>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 </div>
             </nav>
@@ -46,7 +86,7 @@
         <main>
             <div id="map">
            
-<!--############## SIDEBAR SIGN UP #############################################################################################-->
+<!--################ SEARCH BAR ###############################################################################################-->
                 
                 <nav id="search-bar" class="sub-bar">
                     <form>
@@ -56,45 +96,247 @@
                             <i class="mdi-navigation-close"></i>
                         </div>
                     </form>
-                </nav>    
+                </nav>
                 
-            <aside id="sidebar" class="cartodb-header sidebar z-depth-2">
-                <div class="row center-container">
-                    <form class="col l6 m12 s12 center-content">
-                        <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
-                        <div class="row">
-                            <div class="aside-form input-field col s12">
-                                <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">Username</label>
+<!--################ FILTERS BAR ###############################################################################################-->
+
+                <nav id="filters-bar" class="center-container filter-bar">
+                    <ul class="center-content hide-on-med-and-down">
+                        <li class="filter-popularity">
+                            <a id="popularity-button" class="tooltipped" data-position="bottom" data-delay="50" 
+                               data-tooltip="Popularity" href="#">
+                                <i class="mdi-action-grade"></i></a>
+                        </li>
+                        <li class="select-music"><a id="music-button" class="tooltipped" 
+                                                      data-position="bottom" data-delay="50" data-tooltip="Music" href="#">
+                            <i class="mdi-hardware-headset"></i></a>
+                        </li>
+                        <li class="select-sports">
+                            <a id="sports-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Sports" href="#">
+                                <i class="mdi-maps-directions-bike"></i></a>
+                        </li>
+                        <li class="select-games">
+                            <a id="games-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Games" href="#">
+                                <i class="mdi-hardware-gamepad"></i></a>
+                        </li>
+                        <li class="select-educative">
+                            <a id="educative-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Educative" href="#">
+                                <i class="mdi-social-school"></i></a>
+                        </li>
+                        <li class="select-tecnology">
+                            <a id="tecnology-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Tecnology" href="#">
+                            <i class="mdi-hardware-memory"></i></a>
+                        </li>
+                        <li class="select-business">
+                            <a id="business-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Business" href="#">
+                            <i class="mdi-communication-business"></i></a>
+                        </li>
+                        <li class="select-capacity">
+                            <a id="capacity-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Capacity" href="#">
+                                <i class="mdi-social-people"></i></a>
+                        </li>
+                        <li class="select-location">
+                            <a id="location-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Location" href="#">
+                                <i class="mdi-communication-location-on"></i></a>
+                        </li>
+                        <li class="select-local">
+                            <a id="local-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Location City" href="#">
+                                <i class="mdi-social-location-city"></i></a>
+                        </li>
+                        <li class="select-menus">
+                            <a id="menus-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Menus" href="#">
+                                <i class="mdi-maps-restaurant-menu"></i></a>
+                        </li>
+                        <li class="select-bargain">
+                            <a id="bargain-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Bargain" href="#">
+                                <i class="mdi-maps-local-mall"></i></a>
+                        </li>
+                        <li class="select-date">
+                            <a id="date-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Date" href="#">
+                            <i class="mdi-device-access-time "></i></a>
+                        </li>
+                        <li class="select-share">
+                            <a id="share-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Share" href="#">
+                                <i class="mdi-social-share"></i></a>
+                        </li>
+                        <li class="select-world">
+                            <a id="world-button" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="World" href="#">
+                                <i class="mdi-social-public"></i></a>
+                        </li>
+                    </ul>
+                </nav>     
+              
+<!--############## ASIDE SIGN UP #############################################################################################-->
+                  
+                <aside id="newuser" class="cartodb-header sidebar z-depth-2">
+                    <div class="row center-container">
+                        <form class="col l6 m12 s12 center-content">
+                            <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
+                            <div class="row">
+                                <div class="aside-form input-field col s12">
+                                    <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">Username</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="aside-form input-field col s12">
-                                <i class="mdi-content-mail prefix fix-prefix-position"></i>
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
+                            <div class="row">
+                                <div class="aside-form input-field col s12">
+                                    <i class="mdi-content-mail prefix fix-prefix-position"></i>
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">Email</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="aside-form input-field col s12">
-                                <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
+                            <div class="row">
+                                <div class="aside-form input-field col s12">
+                                    <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                                    <input id="password" type="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="aside-form center input-field col s12">
-                                <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign Up
-                                    <i class="mdi-content-send right"></i>
-                                </button>
+                            <div class="row">
+                                <div class="aside-form center input-field col s12">
+                                    <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign Up
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </aside>
+                        </form>
+                    </div>
+                </aside>
             
-<!--##########################################################################################################################-->       
+<!--############## ASIDE SIGN IN #############################################################################################-->
+
+                <aside id="login" class="cartodb-header sidebar z-depth-2">
+                    <div class="row center-container">
+                        <form class="col l6 m12 s12 center-content">
+                            <h5 class="cyan-text text-lighten-4 center">Sign in</h5>
+                            <div class="row">
+                                <div class="aside-form input-field col s12">
+                                    <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                                    <input id="first_name_login" type="text" class="validate">
+                                    <label for="first_name">Username</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="aside-form input-field col s12">
+                                    <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                                    <input id="password_login" type="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="aside-form center input-field col s12">
+                                    <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign In
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+            
+<!--############## ASIDE EXPLORE #############################################################################################-->
+                
+                <aside id="explore" class="cartodb-header explore-aside">
+                    <div class="row">
+                        <div class="col l3 m6 s12">
+                            <div class="card small">
+                                <div class="card-image position-center waves-effect waves-block waves-light">
+                                    <img class="activator" 
+                                    src="http://file.chinatraveldesigner.com/8/kb/ab198dbe-de1b-49dd-a6cc-85088a39ccc1.jpg">
+                                </div>
+                                <div class="card-content truncate">
+                                    <span class="card-title activator grey-text text-darken-4">Festival Shoton iri Lhasa 
+                                        <p><a href="#">Leer mas</a></p></span>
+                                        </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Festival Shoton iri Lhasa
+                                            <i class="mdi-navigation-close right"></i></span>
+                                        <p><i class="mdi-action-home prefix fix-prefix-position"></i>
+                                            Lugar : <b> Ciudad de Lhasa (Tibet) </b></p>
+                                        <p><i class="mdi-action-grade prefix fix-prefix-position"></i>
+                                            Popularidad : <b>  100 </b></p>
+                                        <p><i class="mdi-device-access-time prefix fix-prefix-position"></i>
+                                            Fecha : <b>  25/6/2015 </b></p>
+                                        <p><i class="mdi-social-public prefix fix-prefix-position"></i>
+                                            Antecedentes : <b>  25/6/2014 </b></p>
+                                        <blockquote class="text-justify">
+                                            El primer dia del septimo mes del calendario tibetano es el Festival de Shoton, o el Festival de banquetes de Yogur, que cae en agosto. Cuando los lamas de regreso de su cultivo en las montañas, donde fueron recibidos por la poblacion local y sus familiares con el yogur y tenia un banquete al aire libre. Desde el siglo 17, se dan representaciones de opera durante el festival. Artistas tibetanos de diferentes escuelas de diferentes partes se reúnen en Norbu Lingka, Lhasa, por las representaciones de opera y concursos para varios dias. Al mismo tiempo, una ceremonia para tomar el sol de Buda se llevara a cabo en el monasterio de Drepung.
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l3 m6 s12">
+                                <div class="card small">
+                                    <div class="card-image position-center waves-effect waves-block waves-light">
+                                        <img class="activator" 
+                                        src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
+                                    </div>
+                                    <div class="card-content truncate">
+                                        <span class="card-title activator grey-text text-darken-4">Evento Rio de Janeiro 
+                                            <p><a href="#">Leer mas</a></p></span>
+                                            </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">Evento Rio de Janeiro
+                                            <i class="mdi-navigation-close right"></i></span>
+                                            <p>Here is some more information about this product that is only
+                                             revealed once clicked on.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col l3 m6 s12">
+                                    <div class="card small">
+                                        <div class="card-image position-center waves-effect waves-block waves-light">
+                                            <img class="activator" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
+                                        </div>
+                                        <div class="card-content truncate">
+                                            <span class="card-title activator grey-text text-darken-4">
+                                                Evento Azteca Mays de la ribera sur oeste grante de los cojones de la cosa
+                                                <p class=""><a href="#">Leer mas</a></p></span>
+                                                </div>
+                                            <div class="card-reveal">
+                                                <span class="card-title grey-text text-darken-4">Evento Azteca
+                                                <i class="mdi-navigation-close right"></i></span>
+                                                <p>Here is some more information about this 
+                                                product that is only revealed once clicked on.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col l3 m6 s12">
+                                        <div class="card small">
+                                            <div class="card-image position-center waves-effect waves-block waves-light">
+                                                <img class="activator"
+                                                 src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
+                                            </div>
+                                            <div class="card-content truncate">
+                                                <span class="card-title activator grey-text text-darken-4">Evento New York
+                                                <p><a href="#">Leer mas</a></p></span>
+                                            </div>
+                                            <div class="card-reveal">
+                                                <span class="card-title grey-text text-darken-4">Evento New York
+                                                <i class="mdi-navigation-close right"></i></span>
+                                                <p>Here is some more information about this product that is only
+                                                   revealed once clicked on.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+
+<!--##########################################################################################################################-->     
             
             </div>
         </main>
@@ -113,7 +355,7 @@
         <script>
             $(document).ready(function(){
                 $('.button-collapse').sideNav({
-                    menuWidth: 240, // Default is 240
+                    menuWidth: 58, // Default is 240
                     edge: 'left', // Choose the horizontal origin
                     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 });
@@ -121,16 +363,50 @@
 //            // Hide sideNav
 //            $('.button-collapse').sideNav('hide');
         </script>
-        
+
         <script>
             $(document).ready(function(){
-                $('#newuser-button').click(function(){
-                    $('#sidebar').toggleClass('visible');
-                    $('.select-newuser').toggleClass('active');
-                });
                 $('#search-button').click(function(){
                     $('#search-bar').toggleClass('visible');
                     $('.select-search').toggleClass('active');
+                });
+                
+                $('#newuser-button').click(function(){
+                    $('#newuser').toggleClass('visible');
+                    $('.select-newuser').toggleClass('active');
+                });
+                $('#login-button').click(function(){
+                    $('#login').toggleClass('visible');
+                    $('.select-login').toggleClass('active');
+                });
+                $('#explore-button').click(function(){
+                    $('#explore').toggleClass('visible');
+                    $('.select-explore').toggleClass('active');
+                });
+                $('#box-button').click(function(){
+                    $('#filters-bar').toggleClass('visible');
+                    $('.select-box').toggleClass('active');
+                });
+                
+                $('.search-button').click(function(){
+                    $('#search-bar').toggleClass('visible');
+                    $('.select-search').toggleClass('active');
+                });
+                $('.newuser-button').click(function(){
+                    $('#newuser').toggleClass('visible');
+                    $('.select-newuser').toggleClass('active');
+                });
+                $('.login-button').click(function(){
+                    $('#login').toggleClass('visible');
+                    $('.select-login').toggleClass('active');
+                });
+                $('.explore-button').click(function(){
+                    $('#explore').toggleClass('visible');
+                    $('.select-explore').toggleClass('active');
+                });
+                $('.box-button').click(function(){
+                    $('#filters-bar').toggleClass('visible');
+                    $('.select-box').toggleClass('active');
                 });
             });
 
