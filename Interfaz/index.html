@@ -28,7 +28,7 @@
                     <a href="#" class="brand-logo">Logo</a>
                     <ul class="right hide-on-med-and-down">
                         <li class="select-search">
-                        <a id="search-button" class="tooltipped" data-position="bottom" data-delay="50" 
+                            <a id="search-button" class="tooltipped" data-position="bottom" data-delay="50" 
                            data-tooltip="Search Box" href="#">
                             <i class="mdi-action-search"></i></a>
                         </li>
@@ -251,90 +251,174 @@
 <!--############## ASIDE EXPLORE #############################################################################################-->
                 
                 <aside id="explore" class="cartodb-header explore-aside">
-                    <div class="row">
-                        <div class="col l3 m6 s12">
-                            <div class="card small">
-                                <div class="card-image position-center waves-effect waves-block waves-light">
-                                    <img class="activator" 
-                                    src="http://file.chinatraveldesigner.com/8/kb/ab198dbe-de1b-49dd-a6cc-85088a39ccc1.jpg">
-                                </div>
-                                <div class="card-content truncate">
-                                    <span class="card-title activator grey-text text-darken-4">Festival Shoton iri Lhasa 
-                                        <p><a href="#">Leer mas</a></p></span>
-                                        </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">Festival Shoton iri Lhasa
-                                            <i class="mdi-navigation-close right"></i></span>
-                                        <p><i class="mdi-action-home prefix fix-prefix-position"></i>
-                                            Lugar : <b> Ciudad de Lhasa (Tibet) </b></p>
-                                        <p><i class="mdi-action-grade prefix fix-prefix-position"></i>
-                                            Popularidad : <b>  100 </b></p>
-                                        <p><i class="mdi-device-access-time prefix fix-prefix-position"></i>
-                                            Fecha : <b>  25/6/2015 </b></p>
-                                        <p><i class="mdi-social-public prefix fix-prefix-position"></i>
-                                            Antecedentes : <b>  25/6/2014 </b></p>
-                                        <blockquote class="text-justify">
-                                            El primer dia del septimo mes del calendario tibetano es el Festival de Shoton, o el Festival de banquetes de Yogur, que cae en agosto. Cuando los lamas de regreso de su cultivo en las montañas, donde fueron recibidos por la poblacion local y sus familiares con el yogur y tenia un banquete al aire libre. Desde el siglo 17, se dan representaciones de opera durante el festival. Artistas tibetanos de diferentes escuelas de diferentes partes se reúnen en Norbu Lingka, Lhasa, por las representaciones de opera y concursos para varios dias. Al mismo tiempo, una ceremonia para tomar el sol de Buda se llevara a cabo en el monasterio de Drepung.
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row fix-row-explore">
+                        <nav class="center-container filter-explore fix-level-filter-explore">
+                            <ul class="center-content hide-on-med-and-down">
+                                <li class="filter-popularity">
+                                    <a class="tooltipped popularity-button" data-position="bottom" data-delay="50" 
+                                       data-tooltip="Popularity" href="#">
+                                        <i class="mdi-action-grade"></i></a>
+                                </li>
+                                <li class="select-music"><a class="tooltipped music-button" 
+                                    data-position="bottom" data-delay="50" data-tooltip="Music" href="#">
+                                    <i class="mdi-hardware-headset"></i></a>
+                                </li>
+                                <li class="select-sports">
+                                    <a class="tooltipped sports-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Sports" href="#">
+                                        <i class="mdi-maps-directions-bike"></i></a>
+                                </li>
+                                <li class="select-games">
+                                    <a class="tooltipped games-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Games" href="#">
+                                        <i class="mdi-hardware-gamepad"></i></a>
+                                </li>
+                                <li class="select-educative">
+                                    <a class="tooltipped educative-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Educative" href="#">
+                                        <i class="mdi-social-school"></i></a>
+                                </li>
+                                <li class="select-tecnology">
+                                    <a class="tooltipped tecnology-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Tecnology" href="#">
+                                        <i class="mdi-hardware-memory"></i></a>
+                                </li>
+                                <li class="select-business">
+                                    <a class="tooltipped business-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Business" href="#">
+                                        <i class="mdi-communication-business"></i></a>
+                                </li>
+                                <li class="select-capacity">
+                                    <a class="tooltipped capacity-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Capacity" href="#">
+                                        <i class="mdi-social-people"></i></a>
+                                </li>
+                                <li class="select-location">
+                                    <a class="tooltipped location-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Location" href="#">
+                                        <i class="mdi-communication-location-on"></i></a>
+                                </li>
+                                <li class="select-local">
+                                    <a class="tooltipped local-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Location City" href="#">
+                                        <i class="mdi-social-location-city"></i></a>
+                                </li>
+                                <li class="select-menus">
+                                    <a class="tooltipped menus-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Menus" href="#">
+                                        <i class="mdi-maps-restaurant-menu"></i></a>
+                                </li>
+                                <li class="select-bargain">
+                                    <a class="tooltipped bargain-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Bargain" href="#">
+                                        <i class="mdi-maps-local-mall"></i></a>
+                                </li>
+                                <li class="select-date">
+                                    <a class="tooltipped date-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Date" href="#">
+                                        <i class="mdi-device-access-time "></i></a>
+                                </li>
+                                <li class="select-share">
+                                    <a class="tooltipped share-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="Share" href="#">
+                                        <i class="mdi-social-share"></i></a>
+                                </li>
+                                <li class="select-world">
+                                    <a class="tooltipped world-button" data-position="bottom" data-delay="50"
+                                       data-tooltip="World" href="#">
+                                        <i class="mdi-social-public"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="background-filters"> 
                             <div class="col l3 m6 s12">
-                                <div class="card small">
+                                <div class="card small z-depth-2">
                                     <div class="card-image position-center waves-effect waves-block waves-light">
                                         <img class="activator" 
-                                        src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
+                                        src="http://file.chinatraveldesigner.com/8/kb/ab198dbe-de1b-49dd-a6cc-85088a39ccc1.jpg">
                                     </div>
                                     <div class="card-content truncate">
-                                        <span class="card-title activator grey-text text-darken-4">Evento Rio de Janeiro 
+                                        <span class="card-title activator grey-text text-darken-4">Festival Shoton iri Lhasa 
                                             <p><a href="#">Leer mas</a></p></span>
                                             </div>
                                         <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">Evento Rio de Janeiro
-                                            <i class="mdi-navigation-close right"></i></span>
-                                            <p>Here is some more information about this product that is only
-                                             revealed once clicked on.</p>
+                                            <span class="card-title grey-text text-darken-4">Festival Shoton iri Lhasa
+                                                <i class="mdi-navigation-close right"></i></span>
+                                            <p><i class="mdi-action-home prefix fix-prefix-position"></i>
+                                                Lugar : <b> Lhasa </b></p>
+                                            <p><i class="mdi-action-grade prefix fix-prefix-position"></i>
+                                                Popularidad : <b>  100 </b></p>
+                                            <p><i class="mdi-device-access-time prefix fix-prefix-position"></i>
+                                                Fecha : <b>  25/6/2015 </b></p>
+                                            <p><i class="mdi-social-public prefix fix-prefix-position"></i>
+                                                Antecedentes : <b>  25/6/2014 </b></p>
+                                            <blockquote class="text-justify">
+                                                El primer dia del septimo mes del calendario tibetano es el Festival de Shoton, o el Festival de banquetes de Yogur, que cae en agosto. Cuando los lamas de regreso de su cultivo en las montañas, donde fueron recibidos por la poblacion local y sus familiares con el yogur y tenia un banquete al aire libre. Desde el siglo 17, se dan representaciones de opera durante el festival. Artistas tibetanos de diferentes escuelas de diferentes partes se reúnen en Norbu Lingka, Lhasa, por las representaciones de opera y concursos para varios dias. Al mismo tiempo, una ceremonia para tomar el sol de Buda se llevara a cabo en el monasterio de Drepung.
+                                            </blockquote>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col l3 m6 s12">
-                                    <div class="card small">
+                                    <div class="card small z-depth-2">
                                         <div class="card-image position-center waves-effect waves-block waves-light">
-                                            <img class="activator" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
+                                            <img class="activator" 
+                                            src="http://mujer.starmedia.com/imagenes/2013/03/Lugares-para-ir-en-Semana-Santa.jpg">
                                         </div>
                                         <div class="card-content truncate">
-                                            <span class="card-title activator grey-text text-darken-4">
-                                                Evento Azteca Mays de la ribera sur oeste grante de los cojones de la cosa
-                                                <p class=""><a href="#">Leer mas</a></p></span>
+                                            <span class="card-title activator grey-text text-darken-4">Evento Rio de Janeiro 
+                                                <p><a href="#">Leer mas</a></p></span>
                                                 </div>
                                             <div class="card-reveal">
-                                                <span class="card-title grey-text text-darken-4">Evento Azteca
+                                                <span class="card-title grey-text text-darken-4">Evento Rio de Janeiro
                                                 <i class="mdi-navigation-close right"></i></span>
-                                                <p>Here is some more information about this 
-                                                product that is only revealed once clicked on.</p>
+                                                <p>Here is some more information about this product that is only
+                                                 revealed once clicked on.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col l3 m6 s12">
-                                        <div class="card small">
+                                        <div class="card small z-depth-2">
                                             <div class="card-image position-center waves-effect waves-block waves-light">
-                                                <img class="activator"
-                                                 src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
+                                                <img class="activator" src="http://marcianosmx.com/wp-content/uploads/2011/04/9.jpg">
                                             </div>
                                             <div class="card-content truncate">
-                                                <span class="card-title activator grey-text text-darken-4">Evento New York
-                                                <p><a href="#">Leer mas</a></p></span>
-                                            </div>
-                                            <div class="card-reveal">
-                                                <span class="card-title grey-text text-darken-4">Evento New York
-                                                <i class="mdi-navigation-close right"></i></span>
-                                                <p>Here is some more information about this product that is only
-                                                   revealed once clicked on.</p>
+                                                <span class="card-title activator grey-text text-darken-4">
+                                                    Evento Azteca Mays de la ribera sur oeste grante de los cojones de la cosa
+                                                    <p class=""><a href="#">Leer mas</a></p></span>
+                                                    </div>
+                                                <div class="card-reveal">
+                                                    <span class="card-title grey-text text-darken-4">Evento Azteca
+                                                    <i class="mdi-navigation-close right"></i></span>
+                                                    <p>Here is some more information about this 
+                                                    product that is only revealed once clicked on.</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="col l3 m6 s12">
+                                            <div class="card small z-depth-2">
+                                                <div class="card-image position-center waves-effect waves-block waves-light">
+                                                    <img class="activator"
+                                                     src="http://fotos0.mundofotos.net/2007/18_02_2007/woldalfonsobkn1171824327/lugares-preciosos-super-bueno.jpg">
+                                                </div>
+                                                <div class="card-content truncate">
+                                                    <span class="card-title activator grey-text text-darken-4">Evento New York
+                                                    <p><a href="#">Leer mas</a></p></span>
+                                                </div>
+                                                <div class="card-reveal">
+                                                    <span class="card-title grey-text text-darken-4">Evento New York
+                                                    <i class="mdi-navigation-close right"></i></span>
+                                                    <p>Here is some more information about this product that is only
+                                                       revealed once clicked on.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
                                 </div>
-                            </aside>
+                            </div>
+                    <div class="temp">
+
+                    </div>
+                        </aside>
 
 <!--##########################################################################################################################-->     
             

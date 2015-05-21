@@ -42,7 +42,23 @@ main {
 }
 
 .progress .determinate{
-    background: #00585C;
+    background-color: rgba(0, 96, 100, 0.3); 
+}
+
+.fix-row-explore{
+    margin-bottom: 0px;
+}
+
+.fix-level-filter-explore{
+   z-index: -1;
+}
+
+.background-filters{
+    background-color: rgba(0, 0, 0, 0.3);
+    display: table;
+    width: 100%;
+    padding: 10px;
+    clear: both;
 }
 
 footer{
@@ -128,6 +144,16 @@ footer{
     display: block;
 }
 
+nav ul li:hover, nav ul li.active {
+    background-color: rgba(0, 0, 0, 0.3); 
+}
+
+.input-field input[type=search]:focus {
+    color: #fff; }
+
+.input-field input[type=search]:focus + label i, .input-field input[type=search]:focus ~ .mdi-navigation-close {
+    color: #fff; }
+
 .explore-aside{
     position: absolute;
     width: 100%;
@@ -136,7 +162,8 @@ footer{
     height: 100%;
     background: rgba(0,96,100,.6);
     z-index: 11;
-    padding-top: 150px;
+    padding-top: 133px;
+    overflow: scroll;
 
     display: none;
     transition: all .5s;
@@ -144,6 +171,12 @@ footer{
 
 .explore-aside.visible{
     display: block;
+}
+
+.card:hover{
+    -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 }
 
 .sub-bar{
@@ -170,6 +203,26 @@ footer{
     box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
+.filter-explore{
+    position: fixed;
+    width: 100%;
+    top: 68px;
+    left: 0px;
+    height: 64px;
+    background: transparent;
+    z-index: 99999;
+
+    display: flex;
+
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    -moz-box-shadow:    0px 0px 0px 0px rgba(0, 0, 0, 0);
+    box-shadow:         0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.filter-explore ul a{
+    font-size: 2rem;
+}
+
 .filter-bar{
     position: fixed;
     width: 100%;
@@ -187,11 +240,11 @@ footer{
     box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
-.filter-bar ul a{
+.filter-bar ul a, .filter-explore ul a{
     font-size: 2rem;
 }
 
-.filter-bar ul{
+.filter-bar ul, .filter-explore ul{
     max-width: 100%;
 }
 
@@ -222,8 +275,11 @@ footer{
 
 #search{
     width: 100%;
-    background: rgba(255,255,255,.1);
-    
+    background: rgba(255,255,255,.1);  
+}
+
+#search-bar{
+    width: 100%;
 }
 
 .fix-box-shadow-footer{
