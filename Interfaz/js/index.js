@@ -20,15 +20,16 @@ function onLocation (position) {
 }
 
 function main(lat, lon) {
-    cartodb.createVis('map', 'https://javiergvs.cartodb.com/api/v2/viz/7d345c36-f33c-11e4-b98e-0e8dde98a187/viz.json', {
+    cartodb.createVis('map', 'https://javiergvs.cartodb.com/api/v2/viz/f67b93ba-008f-11e5-a9d7-0e0c41326911/viz.json', {
         shareable: false,
         loaderControl: false,
-        //https: true,
+        https: true,
         title: false,
-        description: true,
+        description: false,
         search: false,
         scrollwheel: true,
         tiles_loader: true,
+        detectRetina: true,
         center_lat: lat,
         center_lon: lon,
         zoom: true
@@ -54,3 +55,90 @@ function main(lat, lon) {
 }
 window.onload = getLocation;
 //window.onload = main;
+
+//####### GET EVENTS & POST EVENT ###################################################################################################
+$(document).ready(function(){
+    function onSubmit (event) {
+        event.preventDefault();
+        console.debug('SUBMITTED');
+        var newCharacter = {
+            name: $('#name').val(),
+            occupation: $('#occupation').val(),
+            weapon: $('#weapon').val()
+            // Build a new character from the values in the form
+        }
+
+        // Send a post request with the data for the new character
+        var request = $.post('https://ironhack-characters.herokuapp.com/characters', newCharacter);
+
+        function onSaveSuccess (response) {
+            console.debug('BOOM', response);
+        }
+
+        function onSaveFailure (err) {
+            console.error(err.responseJSON);
+        }
+
+        request.done(onSaveSuccess);
+        request.fail(onSaveFailure);
+    }
+
+    $('.js-submit').on('click', onSubmit);
+
+    
+    function getEventExplore () {
+        var request = $.get("https://javiergvs.cartodb.com/api/v2/sql?q=SELECT * FROM map WHERE type IS NOT NULL");
+
+        function getEvents (explore_events) {
+            console.log('REQUEST DONE',explore_events);
+            var num = 0;
+            var picture = 0;
+            var picture_route = ['city','nightlife','technics','fashion','business','transport','sports',
+                                 'people','abstract','animals','cats','food','nature'];
+            $.each(explore_events.rows, function(id, event) {
+                
+                if (num >= 10) {
+                    num = 0;
+                    picture++;
+                } else
+                    num++;
+
+                var html = [
+                    '<div class="col l3 m6 s12">',
+                        '<div class="card small z-depth-2">',
+                            '<div class="card-image position-center waves-effect waves-block waves-light">',
+                    '<img class="activator" src="http://lorempixel.com/400/200/' + picture_route[picture] + '/' + num + '">',
+                            '</div>',
+                            '<div class="card-content truncate">',
+                                '<span class="card-title activator grey-text text-darken-4">' + event.name + '<p>',
+                                '<a href="#">Leer mas</a></p></span>',
+                            '</div>',
+                            '<div class="card-reveal">',
+                                '<span class="card-title grey-text text-darken-4">' + event.name + '<i class="mdi-navigation-close right">',
+                                '</i></span>',
+                                '<p><i class="mdi-action-home prefix fix-prefix-position"></i>Place : <b>'+ event.place +'</b></p>',
+                            '<p><i class="mdi-action-grade prefix fix-prefix-position"></i>Affilation : <b>'+  event.affiliation +'</b>',
+                                '</p>',
+                                '<p><i class="mdi-device-access-time prefix fix-prefix-position"></i>Date : <b>'+ event.date +'</b></p>',
+                                '<p><i class="mdi-social-public prefix fix-prefix-position"></i>Type : <b>'+ event.type +'</b></p>',
+                                '<blockquote class="text-justify">'+ event.description +'</blockquote>',
+                            '</div>',
+                        '</div>',
+                    '</div>'
+                    ].join('\n');
+
+                $('#print-event-explore').append(html);
+            });
+        }
+
+        function eventError (err1, err2, err3) {
+            console.error('Error!!', err1, err2, err3);
+        }
+
+        request.done(getEvents);
+        request.fail(eventError);
+    }
+
+    $('#explore-button').on('click', getEventExplore);
+});
+
