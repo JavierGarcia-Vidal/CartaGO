@@ -220,6 +220,10 @@ nav ul li:hover, nav ul li.active {
     font-size: 2rem;
 }
 
+.leaflet-container a {
+    color: #FFFFFF;
+}
+
 .filter-bar{
     position: fixed;
     width: 100%;
@@ -422,4 +426,28 @@ div.cartodb-zoom a.zoom_in{
 
 div.cartodb-zoom a{
     width: 26px;
+}
+
+.modal {
+    display: none;
+    position: flex;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    max-height: 70%;
+    width: 55%;
+    margin: auto;
+    overflow-y: auto;
+    z-index: 99000;
+    border-radius: 2px;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+}
+
+.modal.active {
+    display: flex;
 }

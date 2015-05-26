@@ -25,27 +25,58 @@
     </div>
 </div>
 
+<script>
+    function main(lat, lon) {
+        cartodb.createVis('map', 'https://javiergvs.cartodb.com/api/v2/viz/f67b93ba-008f-11e5-a9d7-0e0c41326911/viz.json', {
+            shareable: false,
+            loaderControl: false,
+            title: false,
+            infowindow: true,
+            mobile_layout: true,
+            cartodb_logo: false,
+            description: false,
+            search: false,
+            scrollwheel: true,
+            tiles_loader: true,
+            detectRetina: true,
+            center_lat: lat,
+            center_lon: lon,
+            zoom: true
+        })
+            .done(function(vis, layers) {
+            // layer 0 is the base layer, layer 1 is cartodb layer
+            // setInteraction is disabled by default
+            layers[1].setInteraction(true);
+            layers[1].on('featureOver', function(e, latlng, pos, data) {
+                cartodb.log.log(e, latlng, pos, data);
+            });
+            // you can get the native map to work with it
+            var map = vis.getNativeMap();
+            $("#progress-bar").css("width", "100%");
+            // now, perform any operations you need
+            // map.setZoom(3);
+            // map.panTo([50.5, 30.5]);
+            //map.panTo([lat, lon]);
+        })
+            .error(function(err) {
+            console.log(err);
+        });
+    }
+    window.onload = getLocation;
+    //window.onload = main;
+</script>
 
 
 
-<!-- Modal Trigger -->
-<a class="modal-trigger waves-effect waves-light btn" href="#modal-event">Modal</a>
+queries
 
-<!-- Modal Structure -->
-<div id="modal-event" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h4>name</h4>
-        <img>
-        <p>date</p>
-        <p>address</p>
-        <p>type</p>
-        <p>place</p>
-        <p>edition</p>
-        <p>affiliation - capacity</p>
-        <p>descripcion</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Vote</a>
-        <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat ">Report</a>
-    </div>
-</div>
+nearest:
+SELECT * FROM map ORDER BY the_geom <-> ST_SetSRID(ST_MakePoint(lon,lat),4326) ASC LIMIT 10
+
+
+
+SELECT * FROM map WHERE (date >= ('2014-07-11T16:46:40+00:00')) ASC LIMIT 10
+
+
+
+
