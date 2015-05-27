@@ -26,7 +26,7 @@ $(document).ready(function(){
             } else {
                 num++;
             }
-
+            
             var html = [
                 '<div class="col l3 m6 s12">',
                 '<div class="card small z-depth-2">',
@@ -35,7 +35,7 @@ $(document).ready(function(){
                 '</div>',
                 '<div class="card-content truncate">',
                 '<span class="card-title activator grey-text text-darken-4">' + event.name + '<p>',
-                '<button data-target="#modal'+id+'" class="btn waves-effect waves-light modal-trigger">Read more</button></p></span>',
+                '<button data-target="modal'+id+'" class="btn waves-effect waves-light modal-trigger">Read more</button></p></span>',
                 '</div>',
                 '<div class="card-reveal">',
                 '<span class="card-title grey-text text-darken-4">' + event.name + '<i class="mdi-navigation-close right">',
@@ -48,27 +48,49 @@ $(document).ready(function(){
                 '<blockquote class="text-justify">'+ event.description +'</blockquote>',
                 '</div>',
                 '</div>',
+                '</div>'
+            ].join('\n');
+            
+            $('#print-event-explore').append(html);
+            
+            var html = [
+            '<div id="modal'+id+'" class="modal modal-fixed-footer">',//Begins modal
+                '<div class="cyan darken-4 modal-header center">',
+                '<h5>' + event.name + '</h5>',
                 '</div>',
-                '<div id="modal'+id+'" class="modal modal-fixed-footer">',//Begins modal
-                '<div class="modal-content">',
-                '<img class="activator materialboxed responsive-img" src="http://lorempixel.com/400/200/' + picture_route[picture] + '/' + num + '">',
-                '<h4>' + event.name + '</h4>',
-                '<p><b>Date : </b>' + event.date + '</p>',
-                '<p><b>Address : </b>' + event.address + '</p>',
-                '<p><b>Place : </b>' + event.place + '</p>',
-                '<p><b>Type : </b>' + event.type + '</p>',
-                '<p><b>Edition : </b>' + event.edition + '</p>',
-                '<p><b>Affiliation - Capacity : </b>' + isUnlimited(event.affilation)+ '<-->' + isUnlimited(event.capacity) +'</p>',
-                '<p><b>Description : </b>' + event.description + '</p>',
+                '<div class="modal-content center">',
+                '<img class="activator responsive-img" src="http://lorempixel.com/400/200/' + picture_route[picture] + '/' + num + '">',
+                '<h6><b>Date</b></h6>',
+                '<p>' + event.date + '</p>',
+                '<h6><b>Address</b></h6>',
+                '<p>' + event.address + '</p>',
+                '<h6><b>Place</b></h6>',
+                '<p>' + event.place + '</p>',
+                '<h6><b>Type</b></h6>',
+                '<p>' + event.type + '</p>',
+                '<h6><b>Edition</b></h6>',
+                '<p>' + event.edition + '</p>',
+                '<h6><b>Affiliation - Capacity</b></h6>',
+                '<p>' + isUnlimited(event.affilation)+ '<-->' + isUnlimited(event.capacity) +'</p>',
+                '<h6><b>Description</b></h6>',
+                '<p>' + event.description + '</p>',
                 '</div>',
-                '<div class="modal-footer">',
+                '<div class="cyan darken-4 modal-footer center">',
                 '<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Vote</a>',
                 '<a href="#" class="modal-action modal-close waves-effect waves-red btn-flat ">Report</a>',
                 '</div>',
                 '</div>'
             ].join('\n');
-
-            $('#print-event-explore').append(html);
+            
+            $('body').append(html);
+            
+        });
+        
+        $('.modal-trigger').leanModal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .5, // Opacity of modal background
+            in_duration: 300, // Transition in duration
+            out_duration: 200, // Transition out duration
         });
     });
 });

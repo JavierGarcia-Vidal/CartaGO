@@ -60,25 +60,25 @@
                         <div class="mobile-sidebar">
                             <li class="select-search">
                                 <a class="button-menu tooltipped" data-position="right" data-delay="50" 
-                                   data-tooltip="Search Box" href="#">
+                                   data-tooltip="Search Box" href="#search-bar">
                                     <i class="mdi-action-search"></i></a>
                             </li>
                             <li class="select-newuser"><a class="button-menu tooltipped" 
-                                data-position="right" data-delay="50" data-tooltip="Sign Up" href="#">
+                                data-position="right" data-delay="50" data-tooltip="Sign Up" href="#newuser">
                                 <i class="mdi-social-person-add"></i></a>
                             </li>
                             <li class="select-login">
                                 <a class="button-menu tooltipped" data-position="right" data-delay="50"
-                                   data-tooltip="Sign In" href="#">
+                                   data-tooltip="Sign In" href="#login">
                                     <i class="mdi-action-account-box"></i></a>
                             </li>
                             <li class="select-explore">
                                 <a class="button-menu tooltipped" data-position="right" data-delay="50"
-                                   data-tooltip="Explore Events" href="#">
+                                   data-tooltip="Explore Events" href="#explore">
                                     <i class="mdi-action-explore"></i></a>
                             </li>
                             <li class="select-box"><a class="button-menu tooltipped" data-position="right" data-delay="50"
-                                data-tooltip="Filters Map" href="#">
+                                data-tooltip="Filters Map" href="#filter-bar">
                                 <i class="mdi-navigation-apps"></i></a>
                             </li>
                         </div>
@@ -336,8 +336,8 @@
                 <div id="print-event-explore" class="background-filters">
                 </div>
             </div>
-        </aside>        
-        
+        </aside>
+
 <!--############## FOOTER ####################################################################################################--> 
               
         <footer class="footer-copyright cyan darken-4 z-depth-2 fix-box-shadow-footer">
@@ -381,6 +381,26 @@
                         .fadeIn(550);
                 });
                 
+                $('#mobile-demo').on('click', 'div li a', function(e){
+                    e.preventDefault();
+                    var $menu = $(this),
+                        href = $menu.attr('href');
+
+                    $('a').parent('li').removeClass('active');
+                    $menu.parent('li').addClass('active');
+
+                    $('.show')
+                        .removeClass('show')
+                        .addClass('hide')
+                        .hide();
+
+                    $(href)
+                        .removeClass('hide')
+                        .addClass('show')
+                        .hide()
+                        .fadeIn(550);
+                });
+                
                 $('.button-collapse').sideNav({
                     menuWidth: 58,
                     edge: 'left',
@@ -405,13 +425,8 @@
                     $menu_filter.parent('li').addClass('active');
                 });
                 
-                $('.modal-trigger').on('click', function (e) {
-                    $('.modal').toggleClass('active');
-
-                });
                 
-                $('.modal-trigger').leanModal();
-                
+            
             });    
         </script>
 <!--##########################################################################################################################-->       

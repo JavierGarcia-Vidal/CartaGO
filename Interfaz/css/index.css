@@ -428,26 +428,54 @@ div.cartodb-zoom a{
     width: 26px;
 }
 
-.modal {
-    display: none;
-    position: flex;
-    left: 0;
-    right: 0;
-    background-color: #fafafa;
-    padding: 0;
-    max-height: 70%;
-    width: 55%;
-    margin: auto;
-    overflow-y: auto;
-    z-index: 99000;
-    border-radius: 2px;
-    -webkit-transform: translate(0);
-    -moz-transform: translate(0);
-    -ms-transform: translate(0);
-    -o-transform: translate(0);
-    transform: translate(0);
+/*#####################################################################################################################################*/
+
+.modal.modal-fixed-footer .modal-header {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    display: block;
+    top: 0;
+    z-index: 900;
+    
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px 10px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
-.modal.active {
-    display: flex;
+.modal.modal-fixed-footer .modal-header h5{
+    color: white;
+}
+
+.modal.modal-fixed-footer .modal-footer a{
+    color: white;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+    -webkit-box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0px -10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         0px -10px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal.modal-fixed-footer .modal-content {
+    position: fixed;
+    max-height: 100%;
+    padding: 48px 0px 65px 0px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.modal.modal-fixed-footer .modal-content h6{
+    background-color: rgba(0,0,0,0.1);
+    width: 100%;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.modal.modal-fixed-footer .modal-content img{
+    height: 50%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
