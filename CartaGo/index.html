@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--Import CSS for the Cartodb map-->
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <!--Import index.css-->
+        <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        
+<!--############## PROGRESS ###################################################################################################-->
+        <header>
+            <div class="progress">
+                <div id="progress-bar" class="determinate" style="width: 0%"></div>
+            </div>
+<!--############## HEADER & MENU ##############################################################################################-->
+               <nav class="cyan darken-4 z-depth-2">
+                <div class="nav-wrapper bring_to_front relative">
+                    <a href="#" class="brand-logo">CartaGo</a>
+                    <ul id="menu" class="right hide-on-med-and-down">
+                        <li class="active select-home">
+                            <a id="home-button" class="button-menu tooltipped" data-position="bottom" data-delay="50" 
+                               data-tooltip="Home" href="#">
+                            <i class="mdi-action-home"></i></a>
+                        </li>
+                        <li class="select-search">
+                            <a id="search-button" class="button-menu tooltipped" data-position="bottom" data-delay="50" 
+                               data-tooltip="Search Box" href="#search-bar">
+                            <i class="mdi-action-search"></i></a>
+                        </li>
+                        <li class="select-newuser"><a id="newuser-button" class="button-menu tooltipped" 
+                            data-position="bottom" data-delay="50" data-tooltip="Sign Up" href="#newuser">
+                            <i class="mdi-social-person-add"></i></a>
+                        </li>
+                        <li class="select-login">
+                            <a id="login-button" class="button-menu tooltipped" data-position="bottom" data-delay="50"
+                             data-tooltip="Sign In" href="#login">
+                            <i class="mdi-action-account-box"></i></a>
+                        </li>
+                        <li class="select-explore">
+                            <a id="explore-button" class="button-menu tooltipped" data-position="bottom" data-delay="50"
+                           data-tooltip="Explore Events" href="#explore">
+                            <i class="mdi-action-explore"></i></a>
+                        </li>
+                        <li class="select-box"><a id="box-button" class="button-menu tooltipped" data-position="bottom" data-delay="50"
+                            data-tooltip="Filters Map" href="#filters-bar">
+                            <i class="mdi-navigation-apps"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="side-nav bring_to_front-mobile mobile-sidebar-center" id="mobile-demo">
+                        <div class="mobile-sidebar">
+                            <li class="select-search">
+                                <a class="button-menu tooltipped" data-position="right" data-delay="50" 
+                                   data-tooltip="Search Box" href="#search-bar">
+                                    <i class="mdi-action-search"></i></a>
+                            </li>
+                            <li class="select-newuser"><a class="button-menu tooltipped" 
+                                data-position="right" data-delay="50" data-tooltip="Sign Up" href="#newuser">
+                                <i class="mdi-social-person-add"></i></a>
+                            </li>
+                            <li class="select-login">
+                                <a class="button-menu tooltipped" data-position="right" data-delay="50"
+                                   data-tooltip="Sign In" href="#login">
+                                    <i class="mdi-action-account-box"></i></a>
+                            </li>
+                            <li class="select-explore">
+                                <a class="button-menu tooltipped" data-position="right" data-delay="50"
+                                   data-tooltip="Explore Events" href="#explore">
+                                    <i class="mdi-action-explore"></i></a>
+                            </li>
+                            <li class="select-box"><a class="button-menu tooltipped" data-position="right" data-delay="50"
+                                data-tooltip="Filters Map" href="#filter-bar">
+                                <i class="mdi-navigation-apps"></i></a>
+                            </li>
+                        </div>
+                    </ul>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                </div>
+            </nav>
+        </header>
+<!--################ MAP ######################################################################################################-->      
+        
+        <main>
+            <div id="map">
+            </div>
+        </main>
+              
+<!--################ SEARCH BAR ###############################################################################################-->
+
+        <nav id="search-bar" class="sub-bar">
+            <div class="input-field">
+                <input id="search" type="search" required>
+                <label for="search"><i class="mdi-action-search"></i></label>
+                <i class="mdi-navigation-close"></i>
+            </div>
+        </nav>
+
+<!--################ FILTERS BAR ###############################################################################################-->
+
+        <nav id="filters-bar" class="center-container filter-bar">
+            <ul id="menu-filter" class="center-content hide-on-med-and-down">
+                <li class="filter-all">
+                    <a id="default" class="button-filter tooltipped" data-position="bottom" data-delay="50" 
+                       data-tooltip="Default" href="#">
+                        <i class="mdi-action-home"></i></a>
+                </li>
+                <li class="filter-clean">
+                    <a id="clean" class="button-filter tooltipped" data-position="bottom" data-delay="50" 
+                       data-tooltip="Clean" href="#">
+                        <i class="mdi-action-group-work"></i></a>
+                </li>
+                <li class="filter-popularity">
+                    <a id="popularity" class="button-filter tooltipped" data-position="bottom" data-delay="50" 
+                       data-tooltip="Popularity" href="#">
+                        <i class="mdi-action-grade"></i></a>
+                </li>
+                <li class="select-music"><a id="music" class=" button-filter tooltipped" 
+                    data-position="bottom" data-delay="50" data-tooltip="Music" href="#">
+                    <i class="mdi-hardware-headset"></i></a>
+                </li>
+                <li class="select-sports">
+                    <a id="sports" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Sports" href="#">
+                        <i class="mdi-maps-directions-bike"></i></a>
+                </li>
+                <li class="selectgames">
+                    <a id="games" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Games" href="#">
+                        <i class="mdi-hardware-gamepad"></i></a>
+                </li>
+                <li class="select-educative">
+                    <a id="educative" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Educative" href="#">
+                        <i class="mdi-social-school"></i></a>
+                </li>
+                <li class="select-tecnology">
+                    <a id="tecnology" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Tecnology" href="#">
+                        <i class="mdi-hardware-memory"></i></a>
+                </li>
+                <li class="select-business">
+                    <a id="business" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Business" href="#">
+                        <i class="mdi-communication-business"></i></a>
+                </li>
+                <li class="select-capacity">
+                    <a id="capacity" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Capacity" href="#">
+                        <i class="mdi-social-people"></i></a>
+                </li>
+                <li class="select-location">
+                    <a id="location" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Location" href="#">
+                        <i class="mdi-communication-location-on"></i></a>
+                </li>
+                <li class="select-menus">
+                    <a id="menus" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Menus" href="#">
+                        <i class="mdi-maps-restaurant-menu"></i></a>
+                </li>
+                <li class="select-sale">
+                    <a id="bargain" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Sale" href="#">
+                        <i class="mdi-maps-local-mall"></i></a>
+                </li>
+                <li class="select-date">
+                    <a id="date" class="button-filter tooltipped" data-position="bottom" data-delay="50"
+                       data-tooltip="Date" href="#">
+                        <i class="mdi-device-access-time "></i></a>
+                </li>
+            </ul>
+        </nav>     
+
+<!--############## ASIDE SIGN UP #############################################################################################-->
+
+        <aside id="newuser" class="cartodb-header sidebar z-depth-2">
+            <div class="row center-container">
+                <form class="col l6 m12 s12 center-content">
+                    <h5 class="cyan-text text-lighten-4 center">Sign as new user</h5>
+                    <div class="row">
+                        <div class="aside-form input-field col s12">
+                            <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="aside-form input-field col s12">
+                            <i class="mdi-content-mail prefix fix-prefix-position"></i>
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="aside-form input-field col s12">
+                            <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="aside-form center input-field col s12">
+                            <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign Up
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+<!--############## ASIDE SIGN IN #############################################################################################-->
+
+        <aside id="login" class="cartodb-header sidebar z-depth-2">
+            <div class="row center-container">
+                <form class="col l6 m12 s12 center-content">
+                    <h5 class="cyan-text text-lighten-4 center">Sign in</h5>
+                    <div class="row">
+                        <div class="aside-form input-field col s12">
+                            <i class="mdi-action-account-circle prefix fix-prefix-position"></i>
+                            <input id="first_name_login" type="text" class="validate">
+                            <label for="first_name">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="aside-form input-field col s12">
+                            <i class="mdi-communication-vpn-key prefix fix-prefix-position"></i>
+                            <input id="password_login" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="aside-form center input-field col s12">
+                            <button class="btn cyan darken-4 waves-effect waves-light" type="submit" name="action">Sign In
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+<!--############## ASIDE EXPLORE #############################################################################################-->
+
+        <aside id="explore" class="cartodb-header explore-aside">
+            <div class="row fix-row-explore">
+                <nav class="center-container filter-explore fix-level-filter-explore">
+                    <ul id="menu-filter-explore" class="center-content hide-on-med-and-down">
+                        <li class="explore-default">
+                            <a id="default_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50" 
+                               data-tooltip="Default" data-value="Todos" href="#">
+                                <i class="mdi-action-home"></i></a>
+                        </li>
+                        <li class="explore-popularity">
+                            <a id="popularity_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50" 
+                               data-tooltip="Popularity" data-value="Popularidad" href="#">
+                                <i class="mdi-action-grade"></i></a>
+                        </li>
+                        <li class="explore-music"><a id="music_explore" class="tooltipped button-explore-filter" 
+                         data-position="bottom" data-delay="50" data-tooltip="Music" data-value="Musica" href="#">
+                            <i class="mdi-hardware-headset"></i></a>
+                        </li>
+                        <li class="explore-sports">
+                            <a id="sports_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Sports" data-value="Deportivo" href="#">
+                                <i class="mdi-maps-directions-bike"></i></a>
+                        </li>
+                        <li class="explore-games">
+                            <a id="games_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Games" data-value="Juegos" href="#">
+                                <i class="mdi-hardware-gamepad"></i></a>
+                        </li>
+                        <li class="explore-educative">
+                            <a id="educative_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Educative" data-value="Educativo" href="#">
+                                <i class="mdi-social-school"></i></a>
+                        </li>
+                        <li class="explore-tecnology">
+                            <a id="tecnology_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Tecnology" data-value="Tecnologico" href="#">
+                                <i class="mdi-hardware-memory"></i></a>
+                        </li>
+                        <li class="explore-business">
+                            <a id="business_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Business" data-value="Empresas" href="#">
+                                <i class="mdi-communication-business"></i></a>
+                        </li>
+                        <li class="explore-capacity">
+                            <a id="capacity_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Capacity" data-value="Capacidad" href="#">
+                                <i class="mdi-social-people"></i></a>
+                        </li>
+                        <li class="explore-location">
+                            <a id="location_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Location" data-value="Localizacion" href="#">
+                                <i class="mdi-communication-location-on"></i></a>
+                        </li>
+                        <li class="explore-menus">
+                            <a id="menus_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Menus" data-value="Menus" href="#">
+                                <i class="mdi-maps-restaurant-menu"></i></a>
+                        </li>
+                        <li class="explore-sale">
+                            <a id="sale_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Sale" data-value="Ofertas" href="#">
+                                <i class="mdi-maps-local-mall"></i></a>
+                        </li>
+                        <li class="explore-date">
+                            <a id="date_explore" class="tooltipped button-explore-filter" data-position="bottom" data-delay="50"
+                               data-tooltip="Date" data-value="Fecha" href="#">
+                            <i class="mdi-device-access-time "></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="print-event-explore" class="background-filters">
+                </div>
+            </div>
+        </aside>
+
+<!--############## FOOTER ####################################################################################################--> 
+              
+        <footer class="footer-copyright cyan darken-4 z-depth-2 fix-box-shadow-footer">
+            <div class="container cyan-text text-lighten-5 center">
+               Proyecto Ironhack © 2015 Copyright Javier Garcia-Vidal Simon
+            </div>
+        </footer>
+        
+<!--##########################################################################################################################-->
+        <!-- include cartodb.js library -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
+        <script src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+        <script>
+            window.CartaGo = {};
+            
+            $('.modal-trigger').leanModal({
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                in_duration: 300, // Transition in duration
+                out_duration: 200, // Transition out duration
+            });
+        </script>
+        <script src="js/filter_map.js"></script>
+        <script src="js/explore_filter.js"></script>
+        <script>
+            $(document).ready(function(){
+                CartaGo.Explore.getEvents();
+                CartaGo.Map.getLocation();
+            });    
+        </script>
+        <script src="js/helpers.js"></script>
+<!--##########################################################################################################################-->       
+    </body>
+</html>
