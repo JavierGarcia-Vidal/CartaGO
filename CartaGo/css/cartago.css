@@ -45,6 +45,17 @@ main {
     background: #004547; 
 }
 
+.logo{
+    margin-left: 5px;
+    display: inline-block;
+    height: 50px !important;
+    vertical-align: middle;
+}
+
+.logo:hover{
+    background-color: rgba(0,0,0,.3); 
+}
+
 .fix-row-explore{
     margin-bottom: 0px;
 }
@@ -493,9 +504,34 @@ div.cartodb-zoom a{
 }
 
 .own-modal{
-    top: 15%;
+    top: 15% !important;
 }
 
 .modal-description{
     padding: 10px;
 }
+
+.bars{
+    display: inline-flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+@media only screen and (min-width: 993px){
+    .center-content-form {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 601px){
+    .center-content-form {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0;
+    }
+}
+    
+    

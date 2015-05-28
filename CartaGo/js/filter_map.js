@@ -1,23 +1,41 @@
+//##############################################################################################################################
+//##################################################### MODULE MAP #############################################################
+//##############################################################################################################################
+
 CartaGo.Map = (function(){
     var map;
     var sublayers = [];
+    var lat;
+    var lon;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRIVATE FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+//@@@@@@@@@@@@@@@ HIGH ACCUARACY FOR GPS GEOLOCATION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     
     var options = {
         enableHighAccuracy: true 
     };
     
-    _onError = function(error) {
+//@@@@@@@@@@@@@@@ ERROR FOR GPS GEOLOCATION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    
+    var _onError = function(error) {
         console.log("Getting location failed: " + error);
     };
     
-    _onLocation = function(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
+//@@@@@@@@@@@@@@@ GET GPS GEOLOCATION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    var _onLocation = function(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
         $("#progress-bar").css("width", "75%");
         _main(lat, lon);
     };
     
-    _main = function(lat,lon){
+//@@@@@@@@@@@@@@@ CARTODB MAP AND LAYERS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    
+    var _main = function(lat,lon){
+//*************** MAP OPTIONS **************************************************************************************************
         map = new L.Map('map', { 
             center_lat: lat,
             center_lon: lon,
@@ -36,15 +54,16 @@ CartaGo.Map = (function(){
             detectRetina: true
         });
 
+//*************** CREATE BASEMAP ************************************************************************************************ 
         L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
         var layerUrl = 'https://javiergvs.cartodb.com/api/v2/viz/f67b93ba-008f-11e5-a9d7-0e0c41326911/viz.json';
 
-        //var sublayers = [];
-
         $("#progress-bar").css("width", "100%");
+        
+//*************** CREATE MAP LAYER **********************************************************************************************
         cartodb.createLayer(map, layerUrl)
             .addTo(map)
             .on('done', function(layer) {
@@ -63,12 +82,32 @@ CartaGo.Map = (function(){
         });
     };
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PUBLIC FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
     return {
+        
+//@@@@@@@@@@@@@@@ CARTODB MAP AND LAYERS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        
         getLocation : function() {
             $("#progress-bar").css("width", "50%");
             navigator.geolocation.getCurrentPosition(_onLocation, _onError, options);
         },
+        
+//@@@@@@@@@@@@@@@ GET LONGITUDE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        
+        getLon : function() {
+            return lon;
+        },
+        
+//@@@@@@@@@@@@@@@ GET LATITUDE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        
+        getLat : function() {
+            return lat;
+        },
 
+//@@@@@@@@@@@@@@@ FILTER MAP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        
         LayerActions : {
             default: function(){
                 sublayers[0].setSQL("SELECT * FROM map");
@@ -135,14 +174,20 @@ CartaGo.Map = (function(){
                 return true;  
             },
             search: function(value){
-                console.log('El valor es = '+ value);
-                sublayers[0].setSQL("SELECT * FROM map WHERE name LIKE ('%"+value+"%') OR place LIKE ('%"+value+"%')  OR address LIKE ('%"+value+"%') AND name IS NOT NULL AND place IS NOT NULL AND address IS NOT NULL");
+                sublayers[0].setSQL("SELECT * FROM map WHERE name ILIKE ('%"+value+"%') OR" + 
+                "place LIKE ('%"+value+"%')  OR address LIKE ('%"+value+"%') AND name IS NOT NULL AND" +
+                "place IS NOT NULL AND address IS NOT NULL");
                 return true;  
             },
             location: function(){
-                sublayers[0].setSQL("SELECT * FROM map ORDER BY the_geom <-> ST_SetSRID(ST_MakePoint(lon,lat),4326) LIMIT 10");
+                sublayers[0].setSQL("SELECT * FROM map WHERE ST_Distance_Sphere(the_geom," + 
+                                    "ST_MakePoint("+lon+","+lat+")) <=30 * 1609.34 AND type IS NOT NULL");
                 return true;  
             }
         }
     };
 })();
+
+//################################################################################################################################
+//################################################################################################################################
+//################################################################################################################################

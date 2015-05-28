@@ -91,7 +91,6 @@ $(document).ready(function(){
     $('.button-explore-filter').click(function() {
         $('.button-explore-filter').removeClass('active');
         $(this).parent('li').addClass('active');
-        console.log($(this).attr('id'));
         CartaGo.Explore.FilterExploreAction($(this).attr('id'),$(this).attr('data-value'));
     });
 
