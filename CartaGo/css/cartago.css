@@ -52,10 +52,6 @@ main {
     vertical-align: middle;
 }
 
-.logo:hover{
-    background-color: rgba(0,0,0,.3); 
-}
-
 .fix-row-explore{
     margin-bottom: 0px;
 }
@@ -513,7 +509,7 @@ div.cartodb-zoom a{
 
 .bars{
     display: inline-flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
 }

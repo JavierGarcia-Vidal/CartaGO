@@ -174,9 +174,8 @@ CartaGo.Map = (function(){
                 return true;  
             },
             search: function(value){
-                sublayers[0].setSQL("SELECT * FROM map WHERE name ILIKE ('%"+value+"%') OR" + 
-                "place LIKE ('%"+value+"%')  OR address LIKE ('%"+value+"%') AND name IS NOT NULL AND" +
-                "place IS NOT NULL AND address IS NOT NULL");
+                console.log(value);
+                sublayers[0].setSQL("SELECT * FROM map WHERE name ILIKE ('%"+value+"%') OR place ILIKE ('%"+value+"%') OR address ILIKE ('%"+value+"%') AND name IS NOT NULL AND place IS NOT NULL AND address IS NOT NULL");
                 return true;  
             },
             location: function(){

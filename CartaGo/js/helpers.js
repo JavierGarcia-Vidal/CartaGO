@@ -81,7 +81,7 @@ $(document).ready(function(){
         CartaGo.Map.LayerActions['default']();
     });
 
-    $('#search').on('keyup',function() {
+    $('#search').on('focusout',function() {
         var search = $('#search').val();
         CartaGo.Map.LayerActions[$(this).attr('id')](search);
     });  
@@ -93,14 +93,4 @@ $(document).ready(function(){
         $(this).parent('li').addClass('active');
         CartaGo.Explore.FilterExploreAction($(this).attr('id'),$(this).attr('data-value'));
     });
-
-    //$('.button-menu').click(function() {
-    //    FilterExploreAction['default_explore']();
-    //});
-
-    //$('#search-explore').on('keyup',function() {
-    //    var search_explore = $('#search-explore').val();
-    //    FilterExploreAction[$(this).attr('id')](search_explore);
-    //});
-
 });
